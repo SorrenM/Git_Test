@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://c8frtichxveab"]
+
+[ext_resource type="PackedScene" uid="uid://bdvf4hswxn5hy" path="res://player.tscn" id="1_glv2v"]
+[ext_resource type="Script" uid="uid://caxv6uis5topf" path="res://path_follow.gd" id="1_uu6xs"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_rxg2q"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_glv2v"]
+size = Vector2(100, 100)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_glv2v"]
+albedo_color = Color(0.13661712, 0.22139305, 0.16011792, 1)
+
+[sub_resource type="Curve3D" id="Curve3D_uu6xs"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 26.167753, 0, -3.577169, 4.5844727, 0, -7.7583504, -4.5844727, 0, 7.7583504, 20.484123, 0, 26.891674, 10.579571, 0, 0.0881691, -10.579571, 0, -0.0881691, -3.3470788, 0, 39.121677, 6.259575, 0, 17.80894, -6.259575, 0, -17.80894, -35.702915, 0, 15.670312, -13.793699, -3.9100647e-05, 8.280394, 13.793699, 3.9100647e-05, -8.280394, -19.911, 0.07130909, -25.199968, 0, 0, 0, 0, 0, 0, 14.753248, 0, -34.735683),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
+}
+point_count = 6
+
+[node name="Main" type="Node3D" unique_id=517080196]
+script = ExtResource("1_uu6xs")
+
+[node name="Ground" type="StaticBody3D" parent="." unique_id=1877636034]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=921890172]
+shape = SubResource("WorldBoundaryShape3D_rxg2q")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground" unique_id=167858064]
+mesh = SubResource("PlaneMesh_glv2v")
+surface_material_override/0 = SubResource("StandardMaterial3D_glv2v")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1798479838]
+transform = Transform3D(0.8660254, 2.1855694e-08, -0.5, 0.5, -3.7855173e-08, 0.8660254, 0, -1, -4.371139e-08, -11.88475, 27.201336, 0)
+light_color = Color(1, 0.8627451, 0.68235296, 1)
+light_energy = 1.408
+shadow_enabled = true
+
+[node name="Path3D" type="Path3D" parent="." unique_id=1362761562]
+curve = SubResource("Curve3D_uu6xs")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D" unique_id=567337641]
+transform = Transform3D(-0.99880755, 0, 0.048340987, 0, 0.99998826, 0, -0.048341002, 0, -0.99880725, 26.167753, 0, -3.577169)
+
+[node name="Player" parent="Path3D/PathFollow3D" unique_id=2008600133 instance=ExtResource("1_glv2v")]
+transform = Transform3D(0.99883133, 0, 0.048342213, 0, 1, 0, -0.048342265, 0, 0.9988315, 0.03264618, 0, 0.8516898)

@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bdvf4hswxn5hy"]
+
+[ext_resource type="Script" uid="uid://oeisb04qbsqn" path="res://player_hike.gd" id="1_4flbx"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4flbx"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_sh265"]
+
+[node name="Player" type="CharacterBody3D" unique_id=2008600133]
+script = ExtResource("1_4flbx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=309727090]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_4flbx")
+
+[node name="Pivot" type="Node" parent="." unique_id=1341357577]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=973205471]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_sh265")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1213051329]
+transform = Transform3D(1, 0, 0, 0, 0.9659259, 0.25881907, 0, -0.25881907, 0.9659258, 0, 2, 0)
