@@ -1,12 +1,39 @@
 [gd_scene format=3 uid="uid://c2g8mrajatb0m"]
 
+[ext_resource type="Shader" uid="uid://cd4pgtrtt7k0p" path="res://shaders/new_shader.gdshader" id="1_keagx"]
+
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_rxg2q"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_glv2v"]
 size = Vector2(100, 100)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_glv2v"]
-albedo_color = Color(0.21716979, 0.3041195, 0.20420888, 1)
+albedo_color = Color(0.28061143, 0.2878306, 0.17312148, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jjogm"]
+render_priority = 0
+shader = ExtResource("1_keagx")
+shader_parameter/pixel_size = 6.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_48q7v"]
+material = SubResource("ShaderMaterial_jjogm")
+flip_faces = true
+size = Vector2(2, 1)
+
+[sub_resource type="Sky" id="Sky_48q7v"]
+
+[sub_resource type="Environment" id="Environment_keagx"]
+background_mode = 1
+background_color = Color(0.28355306, 0.4808485, 0.7786409, 1)
+sky = SubResource("Sky_48q7v")
+ambient_light_color = Color(0.378438, 0.68001854, 0.8301399, 1)
+ambient_light_energy = 0.0
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_jjogm"]
+
+[sub_resource type="Compositor" id="Compositor_2kncw"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_48q7v"]
 
 [node name="Environment_01" type="Node" unique_id=929874254]
 
@@ -16,11 +43,36 @@ albedo_color = Color(0.21716979, 0.3041195, 0.20420888, 1)
 shape = SubResource("WorldBoundaryShape3D_rxg2q")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground" unique_id=1535666797]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2875757, 1.1025381, -3.0286522)
 mesh = SubResource("PlaneMesh_glv2v")
 surface_material_override/0 = SubResource("StandardMaterial3D_glv2v")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=960697086]
 transform = Transform3D(0.8660254, 2.1855694e-08, -0.5, 0.5, -3.7855173e-08, 0.8660254, 0, -1, -4.371139e-08, -11.88475, 27.201336, 0)
-light_color = Color(0.48569787, 0.1731669, 0.99999994, 1)
+light_color = Color(0.71827054, 0.7483231, 0.6054052, 1)
 light_energy = 1.408
 shadow_enabled = true
+
+[node name="Pixelation" type="MeshInstance3D" parent="." unique_id=556670970]
+transform = Transform3D(0.788537, 0, 0.6149873, 0, 1, 0, -0.6149873, 0, 0.788537, 1.8156152, 6.36223, 6.545606)
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_48q7v")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=633749755]
+environment = SubResource("Environment_keagx")
+camera_attributes = SubResource("CameraAttributesPractical_jjogm")
+compositor = SubResource("Compositor_2kncw")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1189854160]
+transform = Transform3D(5.1246476, 0, 0, 0, 5.1246476, 0, 0, 0, 5.1246476, -5.3723063, 2.6924543, 0)
+mesh = SubResource("BoxMesh_48q7v")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=158716339]
+transform = Transform3D(18.03405, 0, 0, 0, 18.03405, 0, 0, 0, 18.03405, -17.766642, 2.6924543, 0)
+mesh = SubResource("BoxMesh_48q7v")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=2029091313]
+transform = Transform3D(6.985495, 0, 0, 0, 6.985495, 0, 0, 0, 24.68503, -17.766642, 2.6924543, 10.621688)
+mesh = SubResource("BoxMesh_48q7v")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1024933991]
