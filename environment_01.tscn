@@ -21,6 +21,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_glv2v")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=960697086]
 transform = Transform3D(0.8660254, 2.1855694e-08, -0.5, 0.5, -3.7855173e-08, 0.8660254, 0, -1, -4.371139e-08, -11.88475, 27.201336, 0)
-light_color = Color(0.8454618, 0.91004044, 0.81976783, 1)
+light_color = Color(0.48569787, 0.1731669, 0.99999994, 1)
 light_energy = 1.408
 shadow_enabled = true
