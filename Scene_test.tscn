@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://diaqr0dsut4ba"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_kile1"]
+
+[node name="Node3D" type="Node3D" unique_id=1223164061]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=976865109]
+transform = Transform3D(40.30156, 0, 0, 0, 1, 0, 0, 0, 37.98075, 0, 0, 0)
+mesh = SubResource("BoxMesh_kile1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D" unique_id=2093329195]
+transform = Transform3D(0.7736841, 0, 0, 0, 4.674465, 0, 0, 0, -0.079062, 0, 1.8664656, -0.41128266)
+mesh = SubResource("BoxMesh_kile1")
