@@ -13,7 +13,7 @@ albedo_color = Color(0.28061143, 0.2878306, 0.17312148, 1)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jjogm"]
 render_priority = 0
 shader = ExtResource("1_keagx")
-shader_parameter/pixel_size = 6.0
+shader_parameter/pixel_size = 4.0
 
 [sub_resource type="QuadMesh" id="QuadMesh_48q7v"]
 material = SubResource("ShaderMaterial_jjogm")
