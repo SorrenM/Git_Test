@@ -24,6 +24,7 @@ func _physics_process(delta):
 		$Camera3D.rotation.y = forwardFacing
 		#lerp_angle($CameraPivot.rotation_degrees.x, downAngle, delta*cameraRotationSpeed)
 		print($Camera3D.rotation_degrees.x) 
+		print($Camera3D.rotation_degrees.y) 
 		facingUp = false
 		print(facingUp)
 		
@@ -38,5 +39,5 @@ func _input(event: InputEvent):
 func _rotate_camera(delta: float, sens_mod: float = 1.0):
 	var input = Input.get_vector("ui_left","ui_right","ui_up","ui_down")
 	lookDir += input
-	rotation.y -= lookDir.x * cameraSens * delta
+	camera.rotation.y -= lookDir.x * cameraSens * delta
 	lookDir = Vector2.ZERO
