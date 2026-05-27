@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://yxp4gbq7ncao"]
+
+[ext_resource type="Texture2D" uid="uid://tuymgup87ect" path="res://Plugins/Trees_1K/tree_collection_1K.png" id="1_kgb3f"]
+
+[resource]
+transparency = 1
+albedo_texture = ExtResource("1_kgb3f")
+uv1_scale = Vector3(0.15, 1.025, 0.68)
+uv1_offset = Vector3(0.15, 0, 0)

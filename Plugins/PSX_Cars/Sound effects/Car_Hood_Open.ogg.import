@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ca50dwfngu1xf"
+path="res://.godot/imported/Car_Hood_Open.ogg-cc50cadc34ebd2949fa763803a09c8ac.oggvorbisstr"
+
+[deps]
+
+source_file="res://Plugins/PSX_Cars/Sound effects/Car_Hood_Open.ogg"
+dest_files=["res://.godot/imported/Car_Hood_Open.ogg-cc50cadc34ebd2949fa763803a09c8ac.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

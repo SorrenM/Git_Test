@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://c2g8mrajatb0m"]
 
+[ext_resource type="Texture2D" uid="uid://bo4q2ye007c4h" path="res://Plugins/RetroTexturesFantasy/floor_ground_grass.png" id="1_jjogm"]
 [ext_resource type="Shader" uid="uid://cd4pgtrtt7k0p" path="res://shaders/new_shader.gdshader" id="1_keagx"]
+[ext_resource type="Material" uid="uid://chksaiifktop3" path="res://Plugins/RetroTexturesFantasy/Textures/M_RTF_wall_brick_sand_both.tres" id="3_2kncw"]
+[ext_resource type="Material" uid="uid://yxp4gbq7ncao" path="res://Plugins/Trees_1K/M_tree_01.tres" id="4_ku1hj"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_rxg2q"]
 
@@ -8,7 +11,8 @@
 size = Vector2(100, 100)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_glv2v"]
-albedo_color = Color(0.28061143, 0.2878306, 0.17312148, 1)
+albedo_texture = ExtResource("1_jjogm")
+uv1_scale = Vector3(15.98, 15.98, 15.98)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jjogm"]
 render_priority = 0
@@ -35,6 +39,8 @@ ambient_light_energy = 0.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_48q7v"]
 
+[sub_resource type="QuadMesh" id="QuadMesh_7sv1u"]
+
 [node name="Environment_01" type="Node" unique_id=929874254]
 
 [node name="Ground" type="StaticBody3D" parent="." unique_id=403906399]
@@ -47,6 +53,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2875757, 1.1025381, -3.0286
 mesh = SubResource("PlaneMesh_glv2v")
 surface_material_override/0 = SubResource("StandardMaterial3D_glv2v")
 
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Ground" unique_id=1593800541]
+transform = Transform3D(1.4031892, 0, 0, 0, 0.278857, 0.96033263, 0, -0.96033263, 0.278857, 4.2875757, 1.1025381, 52.08988)
+mesh = SubResource("PlaneMesh_glv2v")
+surface_material_override/0 = SubResource("StandardMaterial3D_glv2v")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Ground" unique_id=959013663]
+transform = Transform3D(-1.4031892, 8.395494e-08, -2.4378453e-08, 0, 0.27885696, 0.96033263, 1.226707e-07, 0.9603326, -0.278857, 4.2875757, 1.1025381, -58.49697)
+mesh = SubResource("PlaneMesh_glv2v")
+surface_material_override/0 = SubResource("StandardMaterial3D_glv2v")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Ground" unique_id=1908539349]
+transform = Transform3D(-8.824898e-08, -0.9603326, 0.278857, 0, 0.27885696, 0.96033263, -2.0189013, 4.197747e-08, -1.21892265e-08, 62.266556, 1.1025381, -8.147614)
+mesh = SubResource("PlaneMesh_glv2v")
+surface_material_override/0 = SubResource("StandardMaterial3D_glv2v")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Ground" unique_id=1222848509]
+transform = Transform3D(-8.8248974e-08, 0.9603325, -0.27885696, 0, 0.27885693, 0.9603325, 2.018901, 4.1977465e-08, -1.2189226e-08, -51.307785, 1.1025381, -8.147614)
+mesh = SubResource("PlaneMesh_glv2v")
+surface_material_override/0 = SubResource("StandardMaterial3D_glv2v")
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=960697086]
 transform = Transform3D(0.8660254, 2.1855694e-08, -0.5, 0.5, -3.7855173e-08, 0.8660254, 0, -1, -4.371139e-08, -11.88475, 27.201336, 0)
 light_color = Color(0.71827054, 0.7483231, 0.6054052, 1)
@@ -54,7 +80,7 @@ light_energy = 1.408
 shadow_enabled = true
 
 [node name="Pixelation" type="MeshInstance3D" parent="." unique_id=556670970]
-transform = Transform3D(0.788537, 0, 0.6149873, 0, 1, 0, -0.6149873, 0, 0.788537, 1.8156152, 6.36223, 6.545606)
+transform = Transform3D(0.788537, 0, 0.6149873, 0, 0.40758926, 0, -0.6149873, 0, 0.788537, 6.157662, -110.73682, 6.545606)
 extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_48q7v")
 
@@ -63,16 +89,319 @@ environment = SubResource("Environment_keagx")
 camera_attributes = SubResource("CameraAttributesPractical_jjogm")
 compositor = SubResource("Compositor_2kncw")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1189854160]
+[node name="Box3" type="MeshInstance3D" parent="." unique_id=1189854160]
 transform = Transform3D(5.1246476, 0, 0, 0, 5.1246476, 0, 0, 0, 5.1246476, -5.3723063, 2.6924543, 0)
 mesh = SubResource("BoxMesh_48q7v")
+surface_material_override/0 = ExtResource("3_2kncw")
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=158716339]
+[node name="Box2" type="MeshInstance3D" parent="." unique_id=158716339]
 transform = Transform3D(18.03405, 0, 0, 0, 18.03405, 0, 0, 0, 18.03405, -17.766642, 2.6924543, 0)
 mesh = SubResource("BoxMesh_48q7v")
+surface_material_override/0 = ExtResource("3_2kncw")
 
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=2029091313]
-transform = Transform3D(6.985495, 0, 0, 0, 6.985495, 0, 0, 0, 24.68503, -17.766642, 2.6924543, 10.621688)
+[node name="Box1" type="MeshInstance3D" parent="." unique_id=2029091313]
+transform = Transform3D(6.985495, 0, 0, 0, 6.985495, 0, 0, 0, 24.68503, -17.77038, 2.7302752, 13.608722)
 mesh = SubResource("BoxMesh_48q7v")
+surface_material_override/0 = ExtResource("3_2kncw")
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=1024933991]
+
+[node name="Tree_Test" type="MeshInstance3D" parent="." unique_id=1170726927]
+transform = Transform3D(10.01429, 0, 0, 0, 28.642244, 0, 0, 0, 28.642244, -39.17444, 14.335587, -51.90685)
+mesh = SubResource("QuadMesh_7sv1u")
+surface_material_override/0 = ExtResource("4_ku1hj")
+
+[node name="Tree_Test2" type="MeshInstance3D" parent="." unique_id=301477512]
+transform = Transform3D(10.01429, 0, 0, 0, 28.642244, 0, 0, 0, 28.642244, -26.668694, 14.335587, -51.90685)
+mesh = SubResource("QuadMesh_7sv1u")
+surface_material_override/0 = ExtResource("4_ku1hj")
+
+[node name="Tree_Test3" type="MeshInstance3D" parent="." unique_id=1051223365]
+transform = Transform3D(10.01429, 0, 0, 0, 28.642244, 0, 0, 0, 28.642244, -32.860226, 14.335587, -57.603947)
+mesh = SubResource("QuadMesh_7sv1u")
+surface_material_override/0 = ExtResource("4_ku1hj")
+
+[node name="Tree_Test4" type="MeshInstance3D" parent="." unique_id=1342604225]
+transform = Transform3D(10.01429, 0, 0, 0, 28.642244, 0, 0, 0, 28.642244, -17.835453, 14.335587, -51.90685)
+mesh = SubResource("QuadMesh_7sv1u")
+surface_material_override/0 = ExtResource("4_ku1hj")
+
+[node name="Tree_Test5" type="MeshInstance3D" parent="." unique_id=1418033899]
+transform = Transform3D(10.01429, 0, 0, 0, 28.642244, 0, 0, 0, 28.642244, -5.329708, 14.335587, -51.90685)
+mesh = SubResource("QuadMesh_7sv1u")
+surface_material_override/0 = ExtResource("4_ku1hj")
+
+[node name="Tree_Test6" type="MeshInstance3D" parent="." unique_id=1152251454]
+transform = Transform3D(10.01429, 0, 0, 0, 28.642244, 0, 0, 0, 28.642244, -11.52124, 14.335587, -57.603947)
+mesh = SubResource("QuadMesh_7sv1u")
+surface_material_override/0 = ExtResource("4_ku1hj")
+
+[node name="Tree_Test7" type="MeshInstance3D" parent="." unique_id=548134714]
+transform = Transform3D(10.01429, 0, 0, 0, 28.642244, 0, 0, 0, 28.642244, 2.7537231, 14.335587, -51.90685)
+mesh = SubResource("QuadMesh_7sv1u")
+surface_material_override/0 = ExtResource("4_ku1hj")
+
+[node name="Tree_Test8" type="MeshInstance3D" parent="." unique_id=1907594485]
+transform = Transform3D(10.01429, 0, 0, 0, 28.642244, 0, 0, 0, 28.642244, 15.259468, 14.335587, -51.90685)
+mesh = SubResource("QuadMesh_7sv1u")
+surface_material_override/0 = ExtResource("4_ku1hj")
+
+[node name="Tree_Test9" type="MeshInstance3D" parent="." unique_id=2145670544]
+transform = Transform3D(10.01429, 0, 0, 0, 28.642244, 0, 0, 0, 28.642244, 9.067936, 14.335587, -57.603947)
+mesh = SubResource("QuadMesh_7sv1u")
+surface_material_override/0 = ExtResource("4_ku1hj")
+
+[node name="Tree_Test10" type="MeshInstance3D" parent="." unique_id=1334799030]
+transform = Transform3D(10.01429, 0, 0, 0, 28.642244, 0, 0, 0, 28.642244, 23.384579, 14.335587, -51.90685)
+mesh = SubResource("QuadMesh_7sv1u")
+surface_material_override/0 = ExtResource("4_ku1hj")
+
+[node name="Tree_Test11" type="MeshInstance3D" parent="." unique_id=1532113005]
+transform = Transform3D(10.01429, 0, 0, 0, 28.642244, 0, 0, 0, 28.642244, 35.890324, 14.335587, -51.90685)
+mesh = SubResource("QuadMesh_7sv1u")
+surface_material_override/0 = ExtResource("4_ku1hj")
+
+[node name="Tree_Test12" type="MeshInstance3D" parent="." unique_id=660564705]
+transform = Transform3D(10.01429, 0, 0, 0, 28.642244, 0, 0, 0, 28.642244, 29.698792, 14.335587, -57.603947)
+mesh = SubResource("QuadMesh_7sv1u")
+surface_material_override/0 = ExtResource("4_ku1hj")
+
+[node name="Tree_Test13" type="MeshInstance3D" parent="." unique_id=802418192]
+transform = Transform3D(10.01429, 0, 0, 0, 28.642244, 0, 0, 0, 28.642244, 46.78238, 14.335587, -51.90685)
+mesh = SubResource("QuadMesh_7sv1u")
+surface_material_override/0 = ExtResource("4_ku1hj")
+
+[node name="Tree_Test14" type="MeshInstance3D" parent="." unique_id=1033171202]
+transform = Transform3D(10.01429, 0, 0, 0, 28.642244, 0, 0, 0, 28.642244, 59.288124, 14.335587, -51.90685)
+mesh = SubResource("QuadMesh_7sv1u")
+surface_material_override/0 = ExtResource("4_ku1hj")
+
+[node name="Tree_Test15" type="MeshInstance3D" parent="." unique_id=563086064]
+transform = Transform3D(10.01429, 0, 0, 0, 28.642244, 0, 0, 0, 28.642244, 53.096592, 14.335587, -57.603947)
+mesh = SubResource("QuadMesh_7sv1u")
+surface_material_override/0 = ExtResource("4_ku1hj")
+
+[node name="Tree_Test16" type="MeshInstance3D" parent="." unique_id=549803139]
+transform = Transform3D(-4.3773852e-07, 0, 28.642244, 0, 28.642244, 0, -10.01429, 0, -1.2519922e-06, -45.17503, 14.335587, 46.759773)
+mesh = SubResource("QuadMesh_7sv1u")
+surface_material_override/0 = ExtResource("4_ku1hj")
+
+[node name="Tree_Test17" type="MeshInstance3D" parent="." unique_id=1866098723]
+transform = Transform3D(-4.3773852e-07, 0, 28.642244, 0, 28.642244, 0, -10.01429, 0, -1.2519922e-06, -45.17503, 14.335587, 34.25403)
+mesh = SubResource("QuadMesh_7sv1u")
+surface_material_override/0 = ExtResource("4_ku1hj")
+
+[node name="Tree_Test18" type="MeshInstance3D" parent="." unique_id=1692683605]
+transform = Transform3D(-4.3773852e-07, 0, 28.642244, 0, 28.642244, 0, -10.01429, 0, -1.2519922e-06, -50.872128, 14.335587, 40.44556)
+mesh = SubResource("QuadMesh_7sv1u")
+surface_material_override/0 = ExtResource("4_ku1hj")
+
+[node name="Tree_Test19" type="MeshInstance3D" parent="." unique_id=1854309992]
+transform = Transform3D(-4.3773852e-07, 0, 28.642244, 0, 28.642244, 0, -10.01429, 0, -1.2519922e-06, -45.17503, 14.335587, 25.420788)
+mesh = SubResource("QuadMesh_7sv1u")
+surface_material_override/0 = ExtResource("4_ku1hj")
+
+[node name="Tree_Test20" type="MeshInstance3D" parent="." unique_id=1497477802]
+transform = Transform3D(-4.3773852e-07, 0, 28.642244, 0, 28.642244, 0, -10.01429, 0, -1.2519922e-06, -45.17503, 14.335587, 12.915043)
+mesh = SubResource("QuadMesh_7sv1u")
+surface_material_override/0 = ExtResource("4_ku1hj")
+
+[node name="Tree_Test21" type="MeshInstance3D" parent="." unique_id=952402095]
+transform = Transform3D(-4.3773852e-07, 0, 28.642244, 0, 28.642244, 0, -10.01429, 0, -1.2519922e-06, -50.872128, 14.335587, 19.106575)
+mesh = SubResource("QuadMesh_7sv1u")
+surface_material_override/0 = ExtResource("4_ku1hj")
+
+[node name="Tree_Test22" type="MeshInstance3D" parent="." unique_id=1424976104]
+transform = Transform3D(-4.3773852e-07, 0, 28.642244, 0, 28.642244, 0, -10.01429, 0, -1.2519922e-06, -45.17503, 14.335587, 4.8316116)
+mesh = SubResource("QuadMesh_7sv1u")
+surface_material_override/0 = ExtResource("4_ku1hj")
+
+[node name="Tree_Test23" type="MeshInstance3D" parent="." unique_id=1756864534]
+transform = Transform3D(-4.3773852e-07, 0, 28.642244, 0, 28.642244, 0, -10.01429, 0, -1.2519922e-06, -45.17503, 14.335587, -7.6741333)
+mesh = SubResource("QuadMesh_7sv1u")
+surface_material_override/0 = ExtResource("4_ku1hj")
+
+[node name="Tree_Test24" type="MeshInstance3D" parent="." unique_id=1542833027]
+transform = Transform3D(-4.3773852e-07, 0, 28.642244, 0, 28.642244, 0, -10.01429, 0, -1.2519922e-06, -50.872128, 14.335587, -1.4826012)
+mesh = SubResource("QuadMesh_7sv1u")
+surface_material_override/0 = ExtResource("4_ku1hj")
+
+[node name="Tree_Test25" type="MeshInstance3D" parent="." unique_id=1943765582]
+transform = Transform3D(-4.3773852e-07, 0, 28.642244, 0, 28.642244, 0, -10.01429, 0, -1.2519922e-06, -45.17503, 14.335587, -15.799244)
+mesh = SubResource("QuadMesh_7sv1u")
+surface_material_override/0 = ExtResource("4_ku1hj")
+
+[node name="Tree_Test26" type="MeshInstance3D" parent="." unique_id=1950658750]
+transform = Transform3D(-4.3773852e-07, 0, 28.642244, 0, 28.642244, 0, -10.01429, 0, -1.2519922e-06, -45.17503, 14.335587, -28.304989)
+mesh = SubResource("QuadMesh_7sv1u")
+surface_material_override/0 = ExtResource("4_ku1hj")
+
+[node name="Tree_Test27" type="MeshInstance3D" parent="." unique_id=792398276]
+transform = Transform3D(-4.3773852e-07, 0, 28.642244, 0, 28.642244, 0, -10.01429, 0, -1.2519922e-06, -50.872128, 14.335587, -22.113453)
+mesh = SubResource("QuadMesh_7sv1u")
+surface_material_override/0 = ExtResource("4_ku1hj")
+
+[node name="Tree_Test28" type="MeshInstance3D" parent="." unique_id=1089468609]
+transform = Transform3D(-4.3773852e-07, 0, 28.642244, 0, 28.642244, 0, -10.01429, 0, -1.2519922e-06, -45.175034, 14.335587, -39.19704)
+mesh = SubResource("QuadMesh_7sv1u")
+surface_material_override/0 = ExtResource("4_ku1hj")
+
+[node name="Tree_Test29" type="MeshInstance3D" parent="." unique_id=1057166823]
+transform = Transform3D(-4.3773852e-07, 0, 28.642244, 0, 28.642244, 0, -10.01429, 0, -1.2519922e-06, -45.175034, 14.335587, -51.702793)
+mesh = SubResource("QuadMesh_7sv1u")
+surface_material_override/0 = ExtResource("4_ku1hj")
+
+[node name="Tree_Test30" type="MeshInstance3D" parent="." unique_id=649863381]
+transform = Transform3D(-4.3773852e-07, 0, 28.642244, 0, 28.642244, 0, -10.01429, 0, -1.2519922e-06, -50.87213, 14.335587, -45.511257)
+mesh = SubResource("QuadMesh_7sv1u")
+surface_material_override/0 = ExtResource("4_ku1hj")
+
+[node name="Tree_Test31" type="MeshInstance3D" parent="." unique_id=1492949079]
+transform = Transform3D(-10.014291, 0, -2.5039844e-06, 0, 28.642248, 0, 8.754771e-07, 0, -28.642248, 52.358963, 14.335587, 44.943592)
+mesh = SubResource("QuadMesh_7sv1u")
+surface_material_override/0 = ExtResource("4_ku1hj")
+
+[node name="Tree_Test32" type="MeshInstance3D" parent="." unique_id=1909068047]
+transform = Transform3D(-10.014291, 0, -2.5039844e-06, 0, 28.642248, 0, 8.754771e-07, 0, -28.642248, 39.853218, 14.335587, 44.943592)
+mesh = SubResource("QuadMesh_7sv1u")
+surface_material_override/0 = ExtResource("4_ku1hj")
+
+[node name="Tree_Test33" type="MeshInstance3D" parent="." unique_id=1345050316]
+transform = Transform3D(-10.014291, 0, -2.5039844e-06, 0, 28.642248, 0, 8.754771e-07, 0, -28.642248, 46.04475, 14.335587, 50.64069)
+mesh = SubResource("QuadMesh_7sv1u")
+surface_material_override/0 = ExtResource("4_ku1hj")
+
+[node name="Tree_Test34" type="MeshInstance3D" parent="." unique_id=797434311]
+transform = Transform3D(-10.014291, 0, -2.5039844e-06, 0, 28.642248, 0, 8.754771e-07, 0, -28.642248, 31.019976, 14.335587, 44.943592)
+mesh = SubResource("QuadMesh_7sv1u")
+surface_material_override/0 = ExtResource("4_ku1hj")
+
+[node name="Tree_Test35" type="MeshInstance3D" parent="." unique_id=1706995184]
+transform = Transform3D(-10.014291, 0, -2.5039844e-06, 0, 28.642248, 0, 8.754771e-07, 0, -28.642248, 18.514233, 14.335587, 44.943592)
+mesh = SubResource("QuadMesh_7sv1u")
+surface_material_override/0 = ExtResource("4_ku1hj")
+
+[node name="Tree_Test36" type="MeshInstance3D" parent="." unique_id=488511507]
+transform = Transform3D(-10.014291, 0, -2.5039844e-06, 0, 28.642248, 0, 8.754771e-07, 0, -28.642248, 24.705763, 14.335587, 50.64069)
+mesh = SubResource("QuadMesh_7sv1u")
+surface_material_override/0 = ExtResource("4_ku1hj")
+
+[node name="Tree_Test37" type="MeshInstance3D" parent="." unique_id=397864929]
+transform = Transform3D(-10.014291, 0, -2.5039844e-06, 0, 28.642248, 0, 8.754771e-07, 0, -28.642248, 10.430801, 14.335587, 44.943592)
+mesh = SubResource("QuadMesh_7sv1u")
+surface_material_override/0 = ExtResource("4_ku1hj")
+
+[node name="Tree_Test38" type="MeshInstance3D" parent="." unique_id=1613079334]
+transform = Transform3D(-10.014291, 0, -2.5039844e-06, 0, 28.642248, 0, 8.754771e-07, 0, -28.642248, -2.0749435, 14.335587, 44.943592)
+mesh = SubResource("QuadMesh_7sv1u")
+surface_material_override/0 = ExtResource("4_ku1hj")
+
+[node name="Tree_Test39" type="MeshInstance3D" parent="." unique_id=1713295436]
+transform = Transform3D(-10.014291, 0, -2.5039844e-06, 0, 28.642248, 0, 8.754771e-07, 0, -28.642248, 4.1165886, 14.335587, 50.64069)
+mesh = SubResource("QuadMesh_7sv1u")
+surface_material_override/0 = ExtResource("4_ku1hj")
+
+[node name="Tree_Test40" type="MeshInstance3D" parent="." unique_id=491698368]
+transform = Transform3D(-10.014291, 0, -2.5039844e-06, 0, 28.642248, 0, 8.754771e-07, 0, -28.642248, -10.200054, 14.335587, 44.943596)
+mesh = SubResource("QuadMesh_7sv1u")
+surface_material_override/0 = ExtResource("4_ku1hj")
+
+[node name="Tree_Test41" type="MeshInstance3D" parent="." unique_id=1729845146]
+transform = Transform3D(-10.014291, 0, -2.5039844e-06, 0, 28.642248, 0, 8.754771e-07, 0, -28.642248, -22.705803, 14.335587, 44.943596)
+mesh = SubResource("QuadMesh_7sv1u")
+surface_material_override/0 = ExtResource("4_ku1hj")
+
+[node name="Tree_Test42" type="MeshInstance3D" parent="." unique_id=1576073374]
+transform = Transform3D(-10.014291, 0, -2.5039844e-06, 0, 28.642248, 0, 8.754771e-07, 0, -28.642248, -16.514267, 14.335587, 50.640694)
+mesh = SubResource("QuadMesh_7sv1u")
+surface_material_override/0 = ExtResource("4_ku1hj")
+
+[node name="Tree_Test43" type="MeshInstance3D" parent="." unique_id=1092119715]
+transform = Transform3D(-10.014291, 0, -2.5039844e-06, 0, 28.642248, 0, 8.754771e-07, 0, -28.642248, -33.597847, 14.335587, 44.9436)
+mesh = SubResource("QuadMesh_7sv1u")
+surface_material_override/0 = ExtResource("4_ku1hj")
+
+[node name="Tree_Test44" type="MeshInstance3D" parent="." unique_id=1149130808]
+transform = Transform3D(-10.014291, 0, -2.5039844e-06, 0, 28.642248, 0, 8.754771e-07, 0, -28.642248, -46.1036, 14.335587, 44.9436)
+mesh = SubResource("QuadMesh_7sv1u")
+surface_material_override/0 = ExtResource("4_ku1hj")
+
+[node name="Tree_Test45" type="MeshInstance3D" parent="." unique_id=724858190]
+transform = Transform3D(-10.014291, 0, -2.5039844e-06, 0, 28.642248, 0, 8.754771e-07, 0, -28.642248, -39.91207, 14.335587, 50.640697)
+mesh = SubResource("QuadMesh_7sv1u")
+surface_material_override/0 = ExtResource("4_ku1hj")
+
+[node name="Tree_Test46" type="MeshInstance3D" parent="." unique_id=476857090]
+transform = Transform3D(1.3132158e-06, 0, -28.642248, 0, 28.642248, 0, 10.014291, 0, 3.7559766e-06, 52.70404, 14.335587, -52.917023)
+mesh = SubResource("QuadMesh_7sv1u")
+surface_material_override/0 = ExtResource("4_ku1hj")
+
+[node name="Tree_Test47" type="MeshInstance3D" parent="." unique_id=849507390]
+transform = Transform3D(1.3132158e-06, 0, -28.642248, 0, 28.642248, 0, 10.014291, 0, 3.7559766e-06, 52.70404, 14.335587, -40.411278)
+mesh = SubResource("QuadMesh_7sv1u")
+surface_material_override/0 = ExtResource("4_ku1hj")
+
+[node name="Tree_Test48" type="MeshInstance3D" parent="." unique_id=1503433]
+transform = Transform3D(1.3132158e-06, 0, -28.642248, 0, 28.642248, 0, 10.014291, 0, 3.7559766e-06, 58.40114, 14.335587, -46.602806)
+mesh = SubResource("QuadMesh_7sv1u")
+surface_material_override/0 = ExtResource("4_ku1hj")
+
+[node name="Tree_Test49" type="MeshInstance3D" parent="." unique_id=1905665073]
+transform = Transform3D(1.3132158e-06, 0, -28.642248, 0, 28.642248, 0, 10.014291, 0, 3.7559766e-06, 52.70404, 14.335587, -31.578033)
+mesh = SubResource("QuadMesh_7sv1u")
+surface_material_override/0 = ExtResource("4_ku1hj")
+
+[node name="Tree_Test50" type="MeshInstance3D" parent="." unique_id=723681850]
+transform = Transform3D(1.3132158e-06, 0, -28.642248, 0, 28.642248, 0, 10.014291, 0, 3.7559766e-06, 52.70404, 14.335587, -19.072289)
+mesh = SubResource("QuadMesh_7sv1u")
+surface_material_override/0 = ExtResource("4_ku1hj")
+
+[node name="Tree_Test51" type="MeshInstance3D" parent="." unique_id=1472732233]
+transform = Transform3D(1.3132158e-06, 0, -28.642248, 0, 28.642248, 0, 10.014291, 0, 3.7559766e-06, 58.40114, 14.335587, -25.263824)
+mesh = SubResource("QuadMesh_7sv1u")
+surface_material_override/0 = ExtResource("4_ku1hj")
+
+[node name="Tree_Test52" type="MeshInstance3D" parent="." unique_id=1068454333]
+transform = Transform3D(1.3132158e-06, 0, -28.642248, 0, 28.642248, 0, 10.014291, 0, 3.7559766e-06, 52.70404, 14.335587, -10.988861)
+mesh = SubResource("QuadMesh_7sv1u")
+surface_material_override/0 = ExtResource("4_ku1hj")
+
+[node name="Tree_Test53" type="MeshInstance3D" parent="." unique_id=630911339]
+transform = Transform3D(1.3132158e-06, 0, -28.642248, 0, 28.642248, 0, 10.014291, 0, 3.7559766e-06, 52.70404, 14.335587, 1.5168839)
+mesh = SubResource("QuadMesh_7sv1u")
+surface_material_override/0 = ExtResource("4_ku1hj")
+
+[node name="Tree_Test54" type="MeshInstance3D" parent="." unique_id=806592654]
+transform = Transform3D(1.3132158e-06, 0, -28.642248, 0, 28.642248, 0, 10.014291, 0, 3.7559766e-06, 58.40114, 14.335587, -4.6746445)
+mesh = SubResource("QuadMesh_7sv1u")
+surface_material_override/0 = ExtResource("4_ku1hj")
+
+[node name="Tree_Test55" type="MeshInstance3D" parent="." unique_id=729127474]
+transform = Transform3D(1.3132158e-06, 0, -28.642248, 0, 28.642248, 0, 10.014291, 0, 3.7559766e-06, 52.70405, 14.335587, 9.641994)
+mesh = SubResource("QuadMesh_7sv1u")
+surface_material_override/0 = ExtResource("4_ku1hj")
+
+[node name="Tree_Test56" type="MeshInstance3D" parent="." unique_id=891863557]
+transform = Transform3D(1.3132158e-06, 0, -28.642248, 0, 28.642248, 0, 10.014291, 0, 3.7559766e-06, 52.70405, 14.335587, 22.14774)
+mesh = SubResource("QuadMesh_7sv1u")
+surface_material_override/0 = ExtResource("4_ku1hj")
+
+[node name="Tree_Test57" type="MeshInstance3D" parent="." unique_id=1262329586]
+transform = Transform3D(1.3132158e-06, 0, -28.642248, 0, 28.642248, 0, 10.014291, 0, 3.7559766e-06, 58.401146, 14.335587, 15.956211)
+mesh = SubResource("QuadMesh_7sv1u")
+surface_material_override/0 = ExtResource("4_ku1hj")
+
+[node name="Tree_Test58" type="MeshInstance3D" parent="." unique_id=1637739024]
+transform = Transform3D(1.3132158e-06, 0, -28.642248, 0, 28.642248, 0, 10.014291, 0, 3.7559766e-06, 52.70405, 14.335587, 33.039783)
+mesh = SubResource("QuadMesh_7sv1u")
+surface_material_override/0 = ExtResource("4_ku1hj")
+
+[node name="Tree_Test59" type="MeshInstance3D" parent="." unique_id=629282977]
+transform = Transform3D(1.3132158e-06, 0, -28.642248, 0, 28.642248, 0, 10.014291, 0, 3.7559766e-06, 52.70405, 14.335587, 45.545536)
+mesh = SubResource("QuadMesh_7sv1u")
+surface_material_override/0 = ExtResource("4_ku1hj")
+
+[node name="Tree_Test60" type="MeshInstance3D" parent="." unique_id=434252674]
+transform = Transform3D(1.3132158e-06, 0, -28.642248, 0, 28.642248, 0, 10.014291, 0, 3.7559766e-06, 58.401146, 14.335587, 39.354008)
+mesh = SubResource("QuadMesh_7sv1u")
+surface_material_override/0 = ExtResource("4_ku1hj")
