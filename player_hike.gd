@@ -8,6 +8,8 @@ var forwardFacing = deg_to_rad(0)
 var lookDir: Vector2
 @onready var camera: Camera3D = $Camera3D
 var cameraSens = 50
+
+var capMouse: bool = false
 	
 func _physics_process(delta):
 	var cameraRotationSpeed: float = 5
@@ -28,9 +30,16 @@ func _physics_process(delta):
 		facingUp = false
 		print(facingUp)
 		
+	if Input.is_action_just_pressed("pause"):
+		capMouse = !capMouse
+		
+		if capMouse:
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		else:
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			
 	if facingUp == true:
 		_rotate_camera(delta)
-		
 		
 func _input(event: InputEvent):
 	if facingUp == true:
@@ -39,5 +48,5 @@ func _input(event: InputEvent):
 func _rotate_camera(delta: float, sens_mod: float = 1.0):
 	var input = Input.get_vector("ui_left","ui_right","ui_up","ui_down")
 	lookDir += input
-	camera.rotation.y -= lookDir.x * cameraSens * delta
+	camera.rotation.y = clamp(camera.rotation.y - lookDir.x * cameraSens * delta,-1.1,1.1)
 	lookDir = Vector2.ZERO
