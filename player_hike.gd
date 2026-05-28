@@ -7,7 +7,7 @@ var forwardFacing = deg_to_rad(0)
 
 var lookDir: Vector2
 @onready var camera: Camera3D = $Camera3D
-var cameraSens = 50
+var cameraSens = 15
 
 var capMouse: bool = false
 	
