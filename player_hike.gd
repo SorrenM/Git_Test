@@ -15,16 +15,15 @@ func _physics_process(delta):
 	var cameraRotationSpeed: float = 5
 	
 	if Input.is_action_just_pressed("look_up"):
-		$Camera3D.rotation.x = lerp_angle($Camera3D.rotation.x, upAngle, 1) 
+		_look_up_down(0)
 		print($Camera3D.rotation_degrees.x) 
 		facingUp = true
 		print(facingUp) 
 		print("can rotate")
 		
 	if Input.is_action_just_pressed("look_down"):
-		$Camera3D.rotation.x = lerp_angle($Camera3D.rotation.x, downAngle, 1) 
+		_look_up_down(-50)
 		$Camera3D.rotation.y = forwardFacing
-		#lerp_angle($CameraPivot.rotation_degrees.x, downAngle, delta*cameraRotationSpeed)
 		print($Camera3D.rotation_degrees.x) 
 		print($Camera3D.rotation_degrees.y) 
 		facingUp = false
@@ -44,8 +43,13 @@ func _physics_process(delta):
 func _input(event: InputEvent):
 	if facingUp == true:
 		if event is InputEventMouseMotion: lookDir = event.relative*0.01
-	
-func _rotate_camera(delta: float, sens_mod: float = 1.0):
+
+func _look_up_down(look_rotaion):
+	var tween = create_tween()
+	# Smoothly rotate the X axis by 90 degrees over 0.5 seconds
+	tween.tween_property($Camera3D, "rotation_degrees:x",look_rotaion, 0.5)
+
+func _rotate_camera(delta: float):
 	var input = Input.get_vector("ui_left","ui_right","ui_up","ui_down")
 	lookDir += input
 	camera.rotation.y = clamp(camera.rotation.y - lookDir.x * cameraSens * delta,-1.1,1.1)
