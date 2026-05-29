@@ -10,10 +10,10 @@ var lookDir: Vector2
 var cameraSens = 15
 
 var capMouse: bool = false
-	
+
 func _physics_process(delta):
 	var cameraRotationSpeed: float = 5
-	
+		
 	if Input.is_action_just_pressed("look_up"):
 		_look_up_down(0)
 		print($Camera3D.rotation_degrees.x) 
