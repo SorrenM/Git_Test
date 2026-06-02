@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bdvf4hswxn5hy" path="res://player.tscn" id="1_glv2v"]
 [ext_resource type="Script" uid="uid://caxv6uis5topf" path="res://path_follow.gd" id="1_uu6xs"]
 [ext_resource type="PackedScene" uid="uid://c2g8mrajatb0m" path="res://environment_01.tscn" id="3_r0du0"]
+[ext_resource type="PackedScene" uid="uid://cbeixa7k46gqq" path="res://qte_trigger.tscn" id="4_cm0pq"]
 
 [sub_resource type="Curve3D" id="Curve3D_uu6xs"]
 _data = {
@@ -19,9 +20,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 curve = SubResource("Curve3D_uu6xs")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D" unique_id=567337641]
-transform = Transform3D(-0.99880755, 0, 0.048340987, 0, 0.99998826, 0, -0.048341002, 0, -0.99880725, 26.167753, 0, -3.577169)
+transform = Transform3D(-0.9988072, 0, 0.048340976, 0, 0.99998826, 0, -0.048340984, 0, -0.9988071, 26.167753, 0, -3.577169)
 
 [node name="Player" parent="Path3D/PathFollow3D" unique_id=2008600133 instance=ExtResource("1_glv2v")]
 transform = Transform3D(0.99883133, 0, 0.048342213, 0, 1, 0, -0.048342265, 0, 0.9988315, 0.03264618, 0, 0.8516898)
 
 [node name="Environment_01" parent="." unique_id=929874254 instance=ExtResource("3_r0du0")]
+
+[node name="Trigger_QTE" parent="." unique_id=751012623 groups=["leftFoot"] instance=ExtResource("4_cm0pq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.276585, 2.307141, 5.92138)
+
+[node name="CollisionShape3D" parent="Trigger_QTE" index="0" unique_id=82202094]
+debug_color = Color(0.93908936, 0.74812806, 0.7706989, 0.41960785)
+
+[editable path="Trigger_QTE"]

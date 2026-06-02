@@ -20,10 +20,10 @@ func _process(delta):
 func _input(event):
 	if event.is_action_pressed("run"):
 		current_speed = move_speed*speed_increase
-		print (current_speed)
+		print ("current speed = ",current_speed)
 	if event.is_action_released("run"):
 		current_speed = move_speed
-		print (current_speed)
+		print ("current speed = ",current_speed)
 		
 		
 		

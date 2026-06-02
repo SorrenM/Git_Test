@@ -8,7 +8,7 @@
 
 [sub_resource type="BoxMesh" id="BoxMesh_4flbx"]
 
-[node name="Player" type="CharacterBody3D" unique_id=2008600133]
+[node name="Player" type="CharacterBody3D" unique_id=2008600133 groups=["player"]]
 script = ExtResource("1_4flbx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=309727090]

@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cbeixa7k46gqq"]
+
+[ext_resource type="Script" uid="uid://fkdk57ti8nvf" path="res://qte_trigger.gd" id="1_x4jbb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l0m3a"]
+
+[node name="Trigger_QTE" type="Area3D" unique_id=751012623]
+script = ExtResource("1_x4jbb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=82202094]
+shape = SubResource("BoxShape3D_l0m3a")
+debug_color = Color(0.93908936, 0.74812806, 0.7706989, 0.41960785)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

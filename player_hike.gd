@@ -11,10 +11,9 @@ var cameraSens = 15
 
 var capMouse: bool = false
 
+
 func _physics_process(delta):
 	var cameraRotationSpeed: float = 5
-		
-
 		
 	if Input.is_action_just_pressed("pause"):
 		capMouse = !capMouse
@@ -35,7 +34,7 @@ func _input(event: InputEvent):
 		_look_up_down(0)
 		print($Camera3D.rotation_degrees.x) 
 		facingUp = true
-		print(facingUp) 
+		print("facingUp = ",facingUp) 
 		print("can rotate")
 		
 	if Input.is_action_just_pressed("look_down"):
@@ -44,7 +43,7 @@ func _input(event: InputEvent):
 		print($Camera3D.rotation_degrees.x) 
 		print($Camera3D.rotation_degrees.y) 
 		facingUp = false
-		print(facingUp)
+		print("facingUp = ", facingUp)
 
 func _look_up_down(look_rotaion):
 	var tween = create_tween()
@@ -57,3 +56,5 @@ func _rotate_camera(delta: float, sensMod: float = 1.0):
 	camera.rotation.y = clamp(camera.rotation.y - lookDir.x * cameraSens * delta,-1.1,1.1)
 	camera.rotation.x = clamp(camera.rotation.x - lookDir.y * cameraSens * sensMod * delta, -0.1, 0.4)
 	lookDir = Vector2.ZERO
+	
+	
