@@ -1,5 +1,6 @@
 extends Area3D
-var QTE = QuickTimeEvent.new()  
+var QTE = QuickTimeEvent.new()
+var slowedTime: float = 3 
 
 func _ready():
 	add_child(QTE)
@@ -27,4 +28,9 @@ func _on_body_entered(body):
 		#print("QTE started, timer = ",Global.dodgeTime)
 		
 func qte_failed():
-	Global.current_speed = Global.current_speed-3
+	Global.staggered = true
+	var effect_timer = get_tree().create_timer(slowedTime) #Start a timer handled by the tree  
+	effect_timer.timeout.connect(fail_effect_end) 
+	
+func fail_effect_end():
+	Global.staggered = false

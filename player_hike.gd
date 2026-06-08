@@ -11,7 +11,6 @@ var cameraSens = 15
 
 var capMouse: bool = false
 
-
 func _physics_process(delta):
 	var cameraRotationSpeed: float = 5
 		
