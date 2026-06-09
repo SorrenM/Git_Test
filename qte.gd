@@ -2,7 +2,7 @@ extends Node
 class_name QuickTimeEvent
 
 var qteActive:bool = false #used to know if the qte is still accepting input  
-var dodgeTime: float = 3
+@export var dodgeTime: float = 3
 
 signal inputSuccessful #Will be emitted when this QTE is successful  
 signal inputFailed #The opposite

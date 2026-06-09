@@ -1,6 +1,6 @@
 extends Area3D
 var QTE = QuickTimeEvent.new()
-var slowedTime: float = 3 
+@export var slowedTime: float = 3 
 
 func _ready():
 	add_child(QTE)
