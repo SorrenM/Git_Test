@@ -1,6 +1,7 @@
 extends Area3D
 var QTE = QuickTimeEvent.new()
 @export var slowedTime: float = 3 
+signal unStaggered
 
 func _ready():
 	add_child(QTE)
@@ -34,3 +35,4 @@ func qte_failed():
 	
 func fail_effect_end():
 	Global.staggered = false
+	unStaggered.emit()

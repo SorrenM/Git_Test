@@ -36,4 +36,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.276585, 2.307141, 5.92138)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.79324913, 0, 0)
 script = ExtResource("1_fos0i")
 
+[connection signal="unStaggered" from="Trigger_QTE" to="Path3D/PathFollow3D" method="_on_trigger_qte_un_staggered"]
+
 [editable path="Trigger_QTE"]

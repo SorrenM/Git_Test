@@ -1,5 +1,6 @@
 extends Node3D
-var speed_increase:=1.6
+@export var speed_increase:=1.6
+@export var stagger_speed_reduction := 1
 
 @onready var current_speed
 @export var move_speed:=4
@@ -16,7 +17,7 @@ func _process(delta):
 		Global.walk = !Global.walk
 		
 	if Global.staggered == true:
-		current_speed = move_speed-1
+		current_speed = move_speed-stagger_speed_reduction
 		
 func _input(event):
 	if Global.staggered == false:
@@ -27,5 +28,6 @@ func _input(event):
 			current_speed = move_speed
 			print ("current speed = ",current_speed)
 			
-		
-		
+
+func _on_trigger_qte_un_staggered():
+	current_speed = move_speed
