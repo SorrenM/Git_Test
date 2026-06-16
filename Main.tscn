@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://c8frtichxveab"]
 
-[ext_resource type="Script" uid="uid://dr0wsae3n7jhe" path="res://qte.gd" id="1_fos0i"]
 [ext_resource type="PackedScene" uid="uid://bdvf4hswxn5hy" path="res://player.tscn" id="1_glv2v"]
 [ext_resource type="Script" uid="uid://caxv6uis5topf" path="res://path_follow.gd" id="1_uu6xs"]
 [ext_resource type="PackedScene" uid="uid://c2g8mrajatb0m" path="res://environment_01.tscn" id="3_r0du0"]
@@ -34,7 +33,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.276585, 2.307141, 5.92138)
 
 [node name="CollisionShape3D" parent="Trigger_QTE" index="0" unique_id=82202094]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.79324913, 0, 0)
-script = ExtResource("1_fos0i")
+
+[node name="Debug_Label2" type="RichTextLabel" parent="." unique_id=1291970600]
+offset_right = 317.0
+offset_bottom = 169.0
+scroll_following = true
 
 [connection signal="unStaggered" from="Trigger_QTE" to="Path3D/PathFollow3D" method="_on_trigger_qte_un_staggered"]
 
