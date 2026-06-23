@@ -14,6 +14,7 @@ func _process(delta):
 func _ready():
 	add_child(QTE)
 	QTE.inputFailed.connect(qte_failed) 
+	#QTE.inputSuccessful.connect(kill_self) 
 	
 func _on_body_entered(body):
 	if body.is_in_group("player"):
@@ -34,17 +35,17 @@ func _on_body_entered(body):
 			debug_label.add_text("QTE = "+ Global.inputAction+"\n")
 		QTE.start_qte()
 		print("Timer started")
-		#print("QTE started, timer = ",Global.dodgeTime)
+		
+func kill_self():#Cancel's the QTE
+	remove_child(QTE)
+	debug_label.add_text("Cancel timer\n")
 		
 func qte_failed():
-	Global.staggered = true
-	#Output.print("Dodge failed")
 	debug_label.add_text("Dodge failed\n")
 	effect_timer = get_tree().create_timer(slowedTime) #Start a timer handled by the tree  
 	effect_timer.timeout.connect(fail_effect_end) 
-	#Output.print("Staggered: ")
+	Global.staggered = true
 
-	
 func fail_effect_end():
 	Global.staggered = false
 	unStaggered.emit()
