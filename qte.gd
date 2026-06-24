@@ -18,9 +18,10 @@ func _process(delta):
 
 func _input(event):
 	if qteActive and event.is_action_pressed(Global.inputAction): 
-		queue_free()
 		qteActive = false 
 		emit_signal("inputSuccessful")
+		#queue_free()
+		#debug_label.add_text("Cancel timer\n")
 		
 func start_qte(): #Run this to start the count down  
 	qteActive = true
@@ -30,6 +31,5 @@ func start_qte(): #Run this to start the count down
 	
 func end_qte():#Only triggers on fail  
 	qteActive = false #Stop accepting input 
-	debug_label.add_text("fail??\n")
 	emit_signal("inputFailed")
 	print("inputFailed")  

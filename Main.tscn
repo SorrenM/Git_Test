@@ -33,6 +33,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.276585, 2.307141, 5.92138)
 
 [node name="CollisionShape3D" parent="Trigger_QTE" index="0" unique_id=82202094]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.79324913, 0, 0)
+script = null
 
 [node name="Debug_Label2" type="RichTextLabel" parent="." unique_id=1291970600]
 offset_right = 317.0
