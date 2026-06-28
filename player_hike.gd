@@ -6,8 +6,10 @@ var downAngle = deg_to_rad(-50)
 var forwardFacing = deg_to_rad(0)
 
 var lookDir: Vector2
+var target_rotation : Vector3
 @onready var camera: Camera3D = $Camera3D
 var cameraSens = 15
+@export var smoothing_speed := 7.0
 
 var capMouse: bool = false
 
@@ -53,8 +55,10 @@ func _look_up_down(look_x_rotation,look_y_rotation):
 func _rotate_camera(delta: float, sensMod: float = 1.0):
 	var input = Input.get_vector("ui_left","ui_right","ui_up","ui_down")
 	lookDir += input
-	camera.rotation.y = clamp(camera.rotation.y - lookDir.x * cameraSens * delta,-1.1,1.1)
-	camera.rotation.x = clamp(camera.rotation.x - lookDir.y * cameraSens * sensMod * delta, -0.1, 0.4)
+	target_rotation.y = clamp(target_rotation.y - lookDir.x * cameraSens * delta,-1.1,1.1)
+	target_rotation.x = clamp(target_rotation.x - lookDir.y * cameraSens * sensMod * delta, 0, 0.4)
 	lookDir = Vector2.ZERO
 	
+	camera.rotation.y = lerp_angle(camera.rotation.y, target_rotation.y, smoothing_speed * delta)
+	camera.rotation.x = lerp_angle(camera.rotation.x, target_rotation.x, smoothing_speed * delta)
 	
