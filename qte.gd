@@ -20,8 +20,6 @@ func _input(event):
 	if qteActive and event.is_action_pressed(Global.inputAction): 
 		qteActive = false 
 		emit_signal("inputSuccessful")
-		#queue_free()
-		#debug_label.add_text("Cancel timer\n")
 		
 func start_qte(): #Run this to start the count down  
 	qteActive = true

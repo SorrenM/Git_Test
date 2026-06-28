@@ -40,17 +40,17 @@ func _on_body_entered(body):
 func kill_self():#Cancel's the QTE
 	#remove_child(QTE)
 	QTE.queue_free()
-	debug_label.add_text("Cancel timer\n")
+	debug_label.add_text("QTE Success\n")
 		
 func qte_failed():
-	if Global.staggered == true:
-		effect_timer.set_time_left(effect_timer.get_time_left()+slowedTime)
-		debug_label.add_text("Increased stagger timer\nStaggered: "+str(int(effect_timer.get_time_left()))+"s\n")
-	else:
+	if Global.staggered == false:
 		effect_timer = get_tree().create_timer(slowedTime) #Start a timer handled by the tree  
 		effect_timer.timeout.connect(fail_effect_end) 
 		Global.staggered = true
 		debug_label.add_text("Dodge failed\nStaggered: "+str(int(effect_timer.get_time_left()))+"s\n")
+	else:
+		effect_timer.set_time_left(effect_timer.get_time_left()+slowedTime)
+		debug_label.add_text("Increased stagger timer\nStaggered: "+str(int(effect_timer.get_time_left()))+"s\n")
 
 func fail_effect_end():
 	Global.staggered = false

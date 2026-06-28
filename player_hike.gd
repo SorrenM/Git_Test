@@ -30,24 +30,25 @@ func _input(event: InputEvent):
 		if event is InputEventMouseMotion: lookDir = event.relative*0.01
 		
 	if Input.is_action_just_pressed("look_up"):
-		_look_up_down(0)
+		_look_up_down(0,$Camera3D.rotation.x)
 		print($Camera3D.rotation_degrees.x) 
 		facingUp = true
 		print("facingUp = ",facingUp) 
 		print("can rotate")
 		
 	if Input.is_action_just_pressed("look_down"):
-		_look_up_down(-50)
-		$Camera3D.rotation.y = forwardFacing
+		_look_up_down(-50,forwardFacing)
 		print($Camera3D.rotation_degrees.x) 
 		print($Camera3D.rotation_degrees.y) 
 		facingUp = false
 		print("facingUp = ", facingUp)
 
-func _look_up_down(look_rotaion):
+func _look_up_down(look_x_rotation,look_y_rotation):
 	var tween = create_tween()
+	tween.set_parallel()
 	# Smoothly rotate the X axis by 90 degrees over 0.5 seconds
-	tween.tween_property($Camera3D, "rotation_degrees:x",look_rotaion, 0.5)
+	tween.tween_property($Camera3D, "rotation_degrees:x",look_x_rotation, 0.25)
+	tween.tween_property($Camera3D, "rotation_degrees:y",look_y_rotation, 0.25)
 
 func _rotate_camera(delta: float, sensMod: float = 1.0):
 	var input = Input.get_vector("ui_left","ui_right","ui_up","ui_down")
